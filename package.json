@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "webpack": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -22,6 +23,10 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.9",
     "morgan": "^1.10.0",
+    "webpack": "^4.42.1",
     "webpack-pwa-manifest": "^4.2.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11"
   }
 }
