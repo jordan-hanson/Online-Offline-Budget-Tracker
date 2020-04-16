@@ -1,14 +1,15 @@
 let db;
 
 const request = indexedDB.open("budget", 1)
+console.log('THis is request in DB fiel should be index db budget stuff', request)
 
 request.onupgradeneeded = function (event) {
-    const datab = event.target.result;
-    datab.createObjectStore("pending", { autoIncrement: true });
+    db = event.target.result;
+    db.createObjectStore("pending", { autoIncrement: true });
 };
 
 request.onsuccess = function (event) {
-    datab = event.target.result;
+    db = event.target.result;
     if (navigator.onLine) {
         checkDatabase();
     }
@@ -27,6 +28,7 @@ function saveRecord(record) {
 }
 
 function checkDatabase() {
+    console.log('THis is our db variable', db)
 
     const transaction = db.transaction(["pending"], "readwrite");
     const store = transaction.objectStore("pending");

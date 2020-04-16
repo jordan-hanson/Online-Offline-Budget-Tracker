@@ -1,10 +1,10 @@
 console.log("Hi this is your service worker.js file!!! ");
-const cacheName = "static-cache-v2";
-const DATA_cacheName = "data-cache-v1";
+const STATIC_CACHE = "static-cache-v2";
+const DATA_STATIC_CACHE = "data-cache-v1";
 
 self.addEventListener('install', function (evt) {
     evt.waitUntil(
-        caches.open(cacheName).then(cache => {
+        caches.open(STATIC_CACHE).then(cache => {
             return cache.addAll(
                 [
                     '/icons/icon-192x192.png',
@@ -23,7 +23,7 @@ self.addEventListener("activate", function (evt) {
         caches.keys().then(keyList => {
             return Promise.all(
                 keyList.map(key => {
-                    if (key !== cacheName && key !== DATA_cacheName) {
+                    if (key !== STATIC_CACHE && key !== DATA_STATIC_CACHE) {
                         console.log("Removing old cache data", key);
                         return caches.delete(key);
                     }
@@ -36,9 +36,9 @@ self.addEventListener("activate", function (evt) {
 });
 
 self.addEventListener("fetch", function (evt) {
-    if (evt.request.url.includes("/api/")) {
+    if (evt.request.url.includes("/api/transaction/bulk")) {
         evt.respondWith(
-            caches.open(DATA_cacheName).then(cache => {
+            caches.open(DATA_STATIC_CACHE).then(cache => {
                 return fetch(evt.request)
                     .then(response => {
                         // If the response was good, clone it and store it in the cache.
@@ -59,7 +59,7 @@ self.addEventListener("fetch", function (evt) {
     }
 
     evt.respondWith(
-        caches.open(cacheName).then(cache => {
+        caches.open(STATIC_CACHE).then(cache => {
             return cache.match(evt.request).then(response => {
                 return response || fetch(evt.request);
             });
