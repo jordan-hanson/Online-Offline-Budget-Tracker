@@ -2,7 +2,7 @@ const WebpackPwaManifest = require("webpack-pwa-manifest");
 const path = require("path");
 
 const config = {
-    entry: "/server.js",
+    entry: "./server.js",
     output: {
         path: __dirname + "public/dist",
         filename: "bundle.js"
@@ -32,9 +32,9 @@ const config = {
             "theme-color": "#ffffff",
             start_url: "https://localhost:3001/",
             icons: [{
-                src: path.resolve("assets/images/icons/android-chrome-192x192.png"),
+                src: path.resolve("/icons/android-chrome-192x192.png"),
                 sizes: [96, 128, 192, 256, 384, 512],
-                destination: path.join("assets", "icons")
+                destination: path.join("icons")
             }]
         })
     ]
