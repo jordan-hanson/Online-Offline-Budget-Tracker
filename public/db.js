@@ -1,6 +1,7 @@
 let db;
 
 const request = indexedDB.open("budget", 1)
+console.log('THis is request in DB fiel should be index db budget stuff', request)
 
 request.onupgradeneeded = function (event) {
     db = event.target.result;
@@ -27,6 +28,7 @@ function saveRecord(record) {
 }
 
 function checkDatabase() {
+    console.log('THis is our db variable', db)
 
     const transaction = db.transaction(["pending"], "readwrite");
     const store = transaction.objectStore("pending");
