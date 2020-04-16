@@ -29,7 +29,7 @@ CLICK the button ADD FUNDS OR SUBTRACT FUNDS depending on which choice of transa
 You can do this ON or OFFLINE. It will update for you when back in service.
 
 
-Links to the Work
+Links to the Work - Jordan Hanson
 https://budget-tracker-jordan.herokuapp.com/
 https://github.com/jordan-hanson/Online-Offline-Budget-Tracker
 https://jordan-hanson.github.io/Online-Offline-Budget-Tracker/
