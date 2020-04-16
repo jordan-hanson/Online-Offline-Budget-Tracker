@@ -36,11 +36,7 @@ self.addEventListener("activate", function (evt) {
 });
 
 self.addEventListener("fetch", function (evt) {
-<<<<<<< HEAD
     if (evt.request.url.includes("/api/transaction")) {
-=======
-    if (evt.request.url.includes("/api/transaction/bulk")) {
->>>>>>> master
         evt.respondWith(
             caches.open(DATA_STATIC_CACHE).then(cache => {
                 return fetch(evt.request)
