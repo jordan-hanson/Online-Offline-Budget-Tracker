@@ -49,10 +49,11 @@ self.addEventListener("fetch", function (evt) {
                         return response;
                     })
                     .catch(err => {
+                        console.log('HIT FIRST CATCH ERROR!!', err)
                         // Network request failed, try to get it from the cache.
                         return cache.match(evt.request);
                     });
-            }).catch(err => console.log(err))
+            }).catch(err => console.log('Hit second catch error!!!!!', err))
         );
 
         return;
