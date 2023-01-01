@@ -23,10 +23,10 @@
     "express": "^4.17.1",
     "mongoose": "^5.9.9",
     "morgan": "^1.10.0",
-    "webpack": "^4.42.1",
+    "webpack": "^5.75.0",
     "webpack-pwa-manifest": "^4.2.0"
   },
   "devDependencies": {
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^5.0.1"
   }
 }
